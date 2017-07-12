@@ -14,13 +14,13 @@ class Recommendations extends Component {
     try {
       let myInit = {
         "method": "GET",
+        "credentials": 'include',
         "headers": {
-          "authorization": "Bearer ec47b4a995772bdf0f998e41f100114a49fb773e9a4e59748113594070a3f5c6466ae0f42a20a634&state=test123&uidt=1499887503",
+          "authorization": "Bearer 6e60374c0eb0a12d8da98322feb330b9507e6de56a61469017c938142b199c4dfe3c86e125df257a",
         },
         "mode": "cors"
-      }; 
-      let myRequest = new Request ('https://api.npr.org/listening/v2/recommendations', myInit)     
-      let response = await fetch(myRequest);
+}  
+      let response = await fetch('https://api.npr.org/listening/v2/recommendations', myInit);
       let responseJson = await response.json();
       let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
       this.setState({
