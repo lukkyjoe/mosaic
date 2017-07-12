@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "express": "^4.15.3",
+    "node-fetch": "^1.7.1",
     "react": "16.0.0-alpha.12",
     "react-native": "0.46.1",
     "react-native-audio-streamer": "0.0.9",
