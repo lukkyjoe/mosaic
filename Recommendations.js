@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ActivityIndicator, ListView, Text, View } from 'react-native';
 
-export default class Recommendations extends Component {
+class Recommendations extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,18 +12,15 @@ export default class Recommendations extends Component {
 
   async componentDidMount() {
     try {
-      let options = {
+      let myRequest = new Request ('https://api.npr.org/listening/v2/recommendations', myInit)
+      let myInit = {
         "method": "GET",
-        "hostname": "api.npr.org",
-        "port": null,
-        "path": "/identity/v2/user?access_token=ac70c6f9f54d7cfce3c76c5b1cc93a53fe98de22459265c5e97a32d8d46db02220e12c4bb701ee3d",
         "headers": {
-          "authorization": "Bearer ac70c6f9f54d7cfce3c76c5b1cc93a53fe98de22459265c5e97a32d8d46db02220e12c4bb701ee3d",
-          "cache-control": "no-cache",
-          "postman-token": "41600385-26df-cd4e-5a26-eb71c0efd6c4"
-        }
+          "authorization": "Bearer ec47b4a995772bdf0f998e41f100114a49fb773e9a4e59748113594070a3f5c6466ae0f42a20a634&state=test123&uidt=1499887503",
+        },
+        "mode": "cors"
       };      
-      let response = await fetch('https://api.npr.org/listening/v2/recommendations', options);
+      let response = await fetch(myRequest);
       let responseJson = await response.json();
       let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
       this.setState({
@@ -56,3 +53,5 @@ export default class Recommendations extends Component {
     );
   }
 }
+
+export default Recommendations;
