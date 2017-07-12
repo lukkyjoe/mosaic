@@ -33,7 +33,7 @@ class LoginScreen extends React.Component {
   render() {
     return (
       <WebView
-        source={{uri: 'https://github.com/facebook/react-native'}}
+        source={{uri: 'https://api.npr.org/authorization/v2/authorize?client_id=nprone_trial_XYXQFXKhCemn&redirect_uri=http%3A%2F%2Flocalhost%3A3000&response_type=code&scope=identity.readonly%20listening.readonly&state=test123'}}
         style={{marginTop: 20}}
       />
     );
