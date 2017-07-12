@@ -802,7 +802,7 @@ import {
 
 class RemoteSound extends React.Component {
   playTrack = () => {
-    const track = new Sound('https://ondemand.npr.org/anon.npr-mp3/npr/newscasts/2017/07/12/newscastShort110629.mp3', null, (e) => {
+    const track = new Sound('https://ondemand.npr.org/anon.npr-mp3/npr/atc/2017/07/20170712_atc_jared_kushner_faces_backlash_for_role_in_trump_jrs_russia_meeting.mp3?orgId=1&topicId=1122&d=236&p=2&story=536887839&t=progseg&e=536805649&seg=1&NPROne=true', null, (e) => {
       if (e) {
         console.log('error loading track:', e)
       } else {
