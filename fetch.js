@@ -3,6 +3,7 @@ var fetch = require('node-fetch');
 let myInit = {
         "method": "GET",
         "credentials": 'include',
+        "Accept": "application/json",
         "headers": {
           "authorization": "Bearer 6e60374c0eb0a12d8da98322feb330b9507e6de56a61469017c938142b199c4dfe3c86e125df257a",
         },
