@@ -7,6 +7,7 @@ import {
   WebView
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
+import RecommendationsScreen from './Recommendations'
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -18,7 +19,7 @@ class HomeScreen extends React.Component {
       <View>
         <Text>Mosaic Take Home</Text>
         <Button
-          onPress={() => navigate('Login')}
+          onPress={() => navigate('Recommendations')}
           title="NPR Login"
         />
       </View>
@@ -43,6 +44,7 @@ class LoginScreen extends React.Component {
 const reactNativeExample = StackNavigator({
   Home: { screen: HomeScreen },
   Login: { screen: LoginScreen },
+  Recommendations: { screen: RecommendationsScreen }
 });
 
 AppRegistry.registerComponent('reactNativeExample', () => reactNativeExample);
