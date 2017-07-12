@@ -8,7 +8,8 @@ import {
   AsyncStorage
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import RecommendationsScreen from './Recommendations'
+import RecommendationsScreen from './Recommendations';
+import PlayScreen from './Play';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -45,7 +46,8 @@ class LoginScreen extends React.Component {
 const reactNativeExample = StackNavigator({
   Home: { screen: HomeScreen },
   Login: { screen: LoginScreen },
-  Recommendations: { screen: RecommendationsScreen }
+  Recommendations: { screen: RecommendationsScreen },
+  Play: { screen: PlayScreen }
 });
 
 AppRegistry.registerComponent('reactNativeExample', () => reactNativeExample);
