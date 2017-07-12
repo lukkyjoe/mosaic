@@ -10,28 +10,30 @@ class Recommendations extends Component {
   }
 
 
-  async componentDidMount() {
-    try {
-      let myInit = {
-        "method": "GET",
-        "credentials": 'include',
-        "headers": {
-          "authorization": "Bearer 6e60374c0eb0a12d8da98322feb330b9507e6de56a61469017c938142b199c4dfe3c86e125df257a",
-        },
-        "mode": "cors"
-}  
-      let response = await fetch('https://api.npr.org/listening/v2/recommendations', myInit);
-      let responseJson = await response.json();
-      let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-      this.setState({
-        isLoading: false,
-        dataSource: ds.cloneWithRows(responseJson),
-      }, function() {
-        // do something with new state
+  componentDidMount() {
+    let myInit = {
+      "method": "GET",
+      "credentials": 'include',
+      "Accept": "application/json",
+      "headers": {
+        "authorization": "Bearer 6e60374c0eb0a12d8da98322feb330b9507e6de56a61469017c938142b199c4dfe3c86e125df257a",
+      },
+      "mode": "cors"
+    }  
+    return fetch('https://api.npr.org/listening/v2/recommendations', myInit)
+    .then((response) => response.json())
+    .then((responseJson) => {
+        let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+        this.setState({
+          isLoading: false,
+          dataSource: ds.cloneWithRows(responseJson.items),      
+        }, function() {
+          // do something with new state
+        });
+      })
+      .catch((error) => {
+        console.error(error);
       });
-    } catch(error) {
-      console.error(error);
-    }
   }
 
   render() {
@@ -47,7 +49,7 @@ class Recommendations extends Component {
       <View style={{flex: 1, paddingTop: 20}}>
         <ListView
           dataSource={this.state.dataSource}
-          renderRow={(rowData) => <Text>{rowData.items}</Text>}
+          renderRow={(rowData) => <Text>{rowData.href}</Text>}
         />
       </View>
     );
