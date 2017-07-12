@@ -21,7 +21,7 @@ class HomeScreen extends React.Component {
       <View>
         <Text>Mosaic Take Home</Text>
         <Button
-          onPress={() => navigate('Login')}
+          onPress={() => navigate('Recommendations')}
           title="NPR Login"
         />
       </View>
