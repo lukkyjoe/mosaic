@@ -4,7 +4,8 @@ import {
   Text,
   View, 
   Button, 
-  WebView
+  WebView, 
+  AsyncStorage
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import RecommendationsScreen from './Recommendations'
