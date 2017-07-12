@@ -770,5 +770,50 @@ let mockRecs = {
     "errors": []
 }
 
+import RNAudioStreamer from 'react-native-audio-streamer';
+import React from 'react';
+import Sound from 'react-native-sound';
+import {
+  AppRegistry,
+  Text,
+  View, 
+  Button, 
+  WebView, 
+  AsyncStorage
+} from 'react-native';
 
 
+// class Play extends React.Component {
+//   static navigationOptions = {
+//     title: 'play song',
+//   };
+//   render() {
+//     RNAudioStreamer.setUrl('http://lacavewebradio.chickenkiller.com:8000/stream.mp3')
+//     RNAudioStreamer.play()
+//     return (
+//       <Text > Should play </Text>
+//     );
+//   }
+// }
+
+// export default Play;
+
+
+
+class RemoteSound extends React.Component {
+  playTrack = () => {
+    const track = new Sound('https://www.soundjay.com/button/button-1.mp3', null, (e) => {
+      if (e) {
+        console.log('error loading track:', e)
+      } else {
+        track.play()
+      }
+    })
+  }
+
+  render() {
+    return <Button title="play me" onPress={this.playTrack} />
+  }
+}
+
+export default RemoteSound;

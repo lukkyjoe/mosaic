@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import RecommendationsScreen from './Recommendations';
-// import PlayScreen from './Play';
+import PlayScreen from './Play';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -21,7 +21,7 @@ class HomeScreen extends React.Component {
       <View>
         <Text>Mosaic Take Home</Text>
         <Button
-          onPress={() => navigate('Recommendations')}
+          onPress={() => navigate('Play')}
           title="NPR Login"
         />
       </View>
@@ -47,7 +47,7 @@ const reactNativeExample = StackNavigator({
   Home: { screen: HomeScreen },
   Login: { screen: LoginScreen },
   Recommendations: { screen: RecommendationsScreen },
-  // Play: { screen: PlayScreen }
+  Play: { screen: PlayScreen }
 });
 
 AppRegistry.registerComponent('reactNativeExample', () => reactNativeExample);
