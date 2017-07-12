@@ -802,7 +802,7 @@ import {
 
 class RemoteSound extends React.Component {
   playTrack = () => {
-    const track = new Sound('https://www.soundjay.com/button/button-1.mp3', null, (e) => {
+    const track = new Sound('https://ondemand.npr.org/anon.npr-mp3/npr/newscasts/2017/07/12/newscastShort110629.mp3', null, (e) => {
       if (e) {
         console.log('error loading track:', e)
       } else {
