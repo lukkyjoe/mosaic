@@ -21,8 +21,12 @@ class HomeScreen extends React.Component {
       <View>
         <Text>Mosaic Take Home</Text>
         <Button
-          onPress={() => navigate('Recommendations')}
+          onPress={() => navigate('Login')}
           title="NPR Login"
+        />
+        <Button
+          onPress={() => navigate('Recommendations')}
+          title="Go to Recommendations"
         />
       </View>
     );
@@ -36,7 +40,7 @@ class LoginScreen extends React.Component {
   render() {
     return (
       <WebView
-        source={{uri: 'https://api.npr.org/authorization/v2/authorize?client_id=nprone_trial_XYXQFXKhCemn&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Foauth2%2Fcallback&response_type=code&scope=identity.readonly%20listening.readonly&state=test123'}}
+        source={{uri: 'https://api.npr.org/authorization/v2/authorize?client_id=nprone_trial_XYXQFXKhCemn&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Foauth2%2Fcallback&response_type=code&scope=identity.readonly%20identity.write%20listening.readonly%20listening.write%20localactivation&state=tokenHR70'}}
         style={{marginTop: 20}}
       />
     );
