@@ -16,19 +16,19 @@ class HomeScreen extends React.Component {
     const { navigate } = this.props.navigation;
     return (
       <View>
-        <Text>Hello, Chat App!</Text>
+        <Text>Mosaic Take Home</Text>
         <Button
-          onPress={() => navigate('Chat')}
-          title="Chat with Lucy"
+          onPress={() => navigate('Login')}
+          title="NPR Login"
         />
       </View>
     );
   }
 }
 
-class ChatScreen extends React.Component {
+class LoginScreen extends React.Component {
   static navigationOptions = {
-    title: 'Chat with Lucy',
+    title: 'NPR Login ...',
   };
   render() {
     return (
@@ -42,7 +42,7 @@ class ChatScreen extends React.Component {
 
 const reactNativeExample = StackNavigator({
   Home: { screen: HomeScreen },
-  Chat: { screen: ChatScreen },
+  Login: { screen: LoginScreen },
 });
 
 AppRegistry.registerComponent('reactNativeExample', () => reactNativeExample);
