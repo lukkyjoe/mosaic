@@ -3,7 +3,8 @@ import {
   AppRegistry,
   Text,
   View, 
-  Button
+  Button, 
+  WebView
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
@@ -31,9 +32,10 @@ class ChatScreen extends React.Component {
   };
   render() {
     return (
-      <View>
-        <Text>Chat with Lucy</Text>
-      </View>
+      <WebView
+        source={{uri: 'https://github.com/facebook/react-native'}}
+        style={{marginTop: 20}}
+      />
     );
   }
 }
