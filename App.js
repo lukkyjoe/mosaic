@@ -38,6 +38,7 @@ class ChatScreen extends React.Component {
 
 const reactNativeExample = StackNavigator({
   Home: { screen: HomeScreen },
+  Chat: { screen: ChatScreen },
 });
 
 AppRegistry.registerComponent('reactNativeExample', () => reactNativeExample);
