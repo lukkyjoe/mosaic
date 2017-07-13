@@ -1,9 +1,21 @@
 const express = require('express')
 const app = express()
 const https = require('https');
-const Native = require('react-native');
-let asyncStorage = Native.asyncStorage;
+// var Save = require('./AsyncStorage');
+const mongoose = require('mongoose');
 
+mongoose.connect('mongodb://localhost/mosaic');
+let db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error'));
+db.once('open', () => console.log('connected'));
+
+let tokenSchema = mongoose.Schema({
+  token: String
+});
+let Token = mongoose.model('Token', tokenSchema);
+
+
+// console.log(Native.AsyncStorage) 
 app.get('/', function (req, res) {
   res.send('Hello World!')
 })
@@ -11,7 +23,11 @@ app.get('/', function (req, res) {
 app.get('/oauth2/callback', function (req, res) {
   console.log(res);
   res.send('callback url has been hit');
-  asyncStorage.setItem('tokenInfo', 123);
+  Token.create({token: res}, (err, tokenData) => {
+    if (err) {console.error(err)}
+    console.log(tokenData);
+  })
+  // asyncStorage.setItem('tokenInfo', 123);
 })
 
 app.listen(3000, function () {
