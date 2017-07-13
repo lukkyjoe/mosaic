@@ -10,6 +10,7 @@ import {
 import { StackNavigator } from 'react-navigation';
 import RecommendationsScreen from './Recommendations';
 import PlayScreen from './Play';
+import DoubleTapScreen from './DoubleTap';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -55,7 +56,8 @@ const reactNativeExample = StackNavigator({
   Home: { screen: HomeScreen },
   Login: { screen: LoginScreen },
   Recommendations: { screen: RecommendationsScreen },
-  Play: { screen: PlayScreen }
+  Play: { screen: PlayScreen },
+  DoubleTap: { screen: DoubleTapScreen }
 });
 
 AppRegistry.registerComponent('reactNativeExample', () => reactNativeExample);
