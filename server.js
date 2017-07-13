@@ -3,6 +3,7 @@ const app = express()
 const https = require('https');
 // var Save = require('./AsyncStorage');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 mongoose.connect('mongodb://localhost/mosaic');
 let db = mongoose.connection;
@@ -14,6 +15,7 @@ let tokenSchema = mongoose.Schema({
 });
 let Token = mongoose.model('Token', tokenSchema);
 
+app.use(bodyParser.json())
 
 // console.log(Native.AsyncStorage) 
 app.get('/', function (req, res) {
@@ -21,9 +23,11 @@ app.get('/', function (req, res) {
 })
 
 app.get('/oauth2/callback', function (req, res) {
-  console.log(res);
+  console.log('req.query.code here ------------', req.query.code);
   res.send('callback url has been hit');
-  Token.create({token: res}, (err, tokenData) => {
+  // https.get()
+  let aString = JSON.stringify(req.query);
+  Token.create({token: aString}, (err, tokenData) => {
     if (err) {console.error(err)}
     console.log(tokenData);
   })
@@ -61,10 +65,3 @@ app.listen(3000, function () {
 // });
 
 // req.end();
-
-// let lateTokenAllScopes = {
-//   "token_type": "Bearer",
-//   "expires_in": 1209600,
-//   "access_token": "6e60374c0eb0a12d8da98322feb330b9507e6de56a61469017c938142b199c4dfe3c86e125df257a",
-//   "refresh_token": "289ea27d4a1ad875ad0c49d23322097da697db7de35719d4627e8462fd1977caf356be3d08822734"
-// }
