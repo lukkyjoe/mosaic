@@ -1,7 +1,8 @@
 const express = require('express')
 const app = express()
 const https = require('https');
-import {AsyncStorage} from 'react-native';
+const Native = require('react-native');
+let asyncStorage = Native.asyncStorage;
 
 app.get('/', function (req, res) {
   res.send('Hello World!')
@@ -10,7 +11,7 @@ app.get('/', function (req, res) {
 app.get('/oauth2/callback', function (req, res) {
   console.log(res);
   res.send('callback url has been hit');
-  // AsyncStorage.setItem('tokenInfo', 123);
+  asyncStorage.setItem('tokenInfo', 123);
 })
 
 app.listen(3000, function () {
