@@ -48,14 +48,10 @@ class LoginScreen extends React.Component {
   };
   render() {
     return (
-      <WebView
-        source={{uri: 'https://api.npr.org/authorization/v2/authorize?client_id=nprone_trial_XYXQFXKhCemn&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Foauth2%2Fcallback&response_type=code&scope=identity.readonly%20identity.write%20listening.readonly%20listening.write%20localactivation&state=tokenHR70'}}
-        style={{marginTop: 20}}
-      />
-      <Button
-          onPress={() => navigate('Recommendations')}
-          title="Go to Recommendations"
-      />
+        <WebView
+          source={{uri: 'https://api.npr.org/authorization/v2/authorize?client_id=nprone_trial_XYXQFXKhCemn&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Foauth2%2Fcallback&response_type=code&scope=identity.readonly%20identity.write%20listening.readonly%20listening.write%20localactivation&state=tokenHR70'}}
+          style={{marginTop: 20}}
+        />
     );
   }
 }
